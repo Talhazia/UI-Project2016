@@ -1,0 +1,109 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+.timebar {
+  text-align: center;
+
+  h2 {
+
+    span {
+      color: #FFFFFF;
+      font-size: 18px;
+    }
+  }
+}
+
+.uoit-logo-dashboard {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 200px;
+}
+
+.emergency-container {
+  background: #0077CB;
+  text-align: center;
+
+  .logo {
+    width: 300px;
+  }
+
+  h3 {
+    margin-top: -20px;
+    color: #FFF;
+    font-size: 18px;
+  }
+
+  .instructions {
+    color: #FFFFFF;
+    margin: 10px 0;
+  }
+
+  .md-button.md-primary:not([disabled]) md-icon,
+  .md-button.md-primary.md-fab {
+    background-color: #31CDFE !important;
+
+    &.upload-image {
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -ms-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s;
+
+      &.uploaded {
+        background-color: #2ecc71 !important;
+      }
+    }
+  }
+
+  md-input-container > md-icon {
+    color: #FFFFFF;
+  }
+
+  label {
+    color: #FFFFFF;
+  }
+
+  md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #FFFFFF;
+  }
+
+  md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: #FFFFFF;
+  }
+
+  md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+    color: #FFFFFF;
+  }
+
+  input,
+  textarea {
+    color: #FFFFFF;
+  }
+
+  .md-button.md-primary.md-raised:not([disabled]):hover,
+  .md-button.md-primary.md-raised{
+    background-color: #31CDFE !important;
+    font-size: 20px;
+  }
+}

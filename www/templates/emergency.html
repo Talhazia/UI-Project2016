@@ -1,0 +1,33 @@
+<ion-nav-view>
+  <ion-view view-title="Emergency">
+    <ion-content class="emergency-container" scroll="false" ng-controller="EmergencyController">
+      <img class="logo" src="img/logo.png" alt="">
+      <h3>ALERTED THE SECURITY OFFICIALS! <br> HELP IS ON THE WAY!</h3>
+      <div flex map-lazy-load="https://maps.google.com/maps/api/js"
+           map-lazy-load-params="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOxs2t2U1mXL0Sc2nnZiDdWXQtSbERF60">
+        <ng-map style="height: 100%;" center="{{coordinates}}" zoom="18">
+          <directions
+            draggable="false"
+            travel-mode="WALKING"
+            origin="current-location"
+            destination="[43.94489746, -78.89812434]">
+          </directions>
+        </ng-map>
+      </div>
+      <p class="instructions">Follow Blue Route to locate closest Security Personnel (B)</p>
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button class="md-fab md-primary" aria-label="Eat cake">
+          <md-icon md-svg-src="img/ic_keyboard.svg"></md-icon>
+        </md-button>
+
+        <md-button class="md-fab md-primary" aria-label="Use Android">
+          <md-icon md-svg-src="img/ic_photo.svg"></md-icon>
+        </md-button>
+
+        <md-button class="md-fab md-primary" aria-label="Comment">
+          <md-icon md-svg-src="img/ic_videocam.svg"></md-icon>
+        </md-button>
+      </section>
+    </ion-content>
+  </ion-view>
+</ion-nav-view>

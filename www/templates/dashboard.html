@@ -1,0 +1,50 @@
+<ion-nav-view>
+  <ion-view view-title="Dashboard">
+    <ion-content scroll="false"  ng-controller="DashboardController">
+      <div layout="row" layout-fill>
+        <div flex="20">
+          <md-toolbar class="timebar">
+            <h2>
+              <span>{{moment}} <br> Anonymous Tips</span>
+            </h2>
+          </md-toolbar>
+          <div layout="column">
+            <md-card ng-repeat="tip in anonTips" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline" style="font-size: 15px;">{{tip.timestamp | amDateFormat:'M/DD/YYYY, H:mm:ss A'}}</span>
+                  <span class="md-subhead">{{tip.details}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                  <div class="md-media-lg card-media">
+                    <img src="{{tip.image_url}}" alt="">
+                  </div>
+                </md-card-title-media>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+                <md-button>Assign</md-button>
+                <md-button ng-click="anonTips.$remove(tip)">Dismiss</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+        </div>
+        <div flex map-lazy-load="https://maps.google.com/maps/api/js"
+             map-lazy-load-params="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOxs2t2U1mXL0Sc2nnZiDdWXQtSbERF60">
+          <ng-map style="height: 100%;" center="[43.9453764, -78.896397]" zoom="18">
+            <marker ng-repeat="tip in anonTips" position="[{{tip.latitude}}, {{tip.longitude}}]" title="hello"></marker>
+
+            <marker ng-repeat="guard in guards" position="[{{guard.latitude}}, {{guard.longitude}}]" title="Guard {{ $index }}" icon="img/ic_radio.svg"></marker>
+
+            <directions
+              draggable="false"
+              travel-mode="WALKING"
+              origin="[{{emergency.latitude}}, {{emergency.longitude}}]"
+              destination="[43.94489746, -78.89812434]">
+            </directions>
+          </ng-map>
+        </div>
+      </div>
+      <img class="uoit-logo-dashboard" src="https://shared.uoit.ca/shared/department/communications/images/logo/4_RGB/UOIT_RGB.jpg" alt="">
+    </ion-content>
+  </ion-view>
+</ion-nav-view>

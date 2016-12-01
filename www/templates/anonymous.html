@@ -1,0 +1,38 @@
+<ion-nav-view>
+  <ion-view view-title="Anonymous">
+    <ion-content class="emergency-container" scroll="false" ng-controller="AnonymousController">
+      <form name="AnonymousForm" ng-submit="AnonymousSubmit()">
+        <img class="logo" src="img/logo.png" alt="">
+        <h3>REPORT A INCIDENT</h3>
+        <md-input-container class="md-icon-float">
+          <!-- Use floating label instead of placeholder -->
+          <label>Location</label>
+          <md-icon md-svg-src="img/ic_place_24px.svg" class="name"></md-icon>
+          <input ng-model="currentLocation" type="text" ng-required required name="currentLocation">
+        </md-input-container>
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+          <md-button class="md-fab md-primary" aria-label="Eat cake">
+            <md-icon md-svg-src="img/ic_keyboard.svg"></md-icon>
+          </md-button>
+
+          <md-button ngf-select="uploadImage($file)" class="md-fab md-primary upload-image" ng-class="{'uploaded': imageUrl}" aria-label="Use Android">
+            <md-icon class="upload-image" ng-class="{'uploaded': imageUrl}" md-svg-src="img/ic_photo.svg"></md-icon>
+          </md-button>
+
+          <md-button class="md-fab md-primary" aria-label="Comment">
+            <md-icon md-svg-src="img/ic_videocam.svg"></md-icon>
+          </md-button>
+        </section>
+        <md-input-container style="width: 80%;">
+          <label>Biography</label>
+          <textarea ng-model="details" name="details" md-maxlength="150" rows="5" md-select-on-focus required
+                    ng-required></textarea>
+        </md-input-container>
+        <md-button type="submit"  style="width: 80%;" flex class=" md-primary md-raised"
+                   ng-disabled="AnonymousForm.$invalid">REPORT INCIDENT
+        </md-button>
+      </form>
+    </ion-content>
+
+  </ion-view>
+</ion-nav-view>
