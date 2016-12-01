@@ -104,7 +104,7 @@ angular.module('starter.controllers', [])
     };
 
     function uploadFile(file) {
-      var storage = firebase.storage().ref("tips");
+      var storage = firebase.storage().ref("tips").child(file.name);
 
       var uploadTask = storage.put(file);
 
